@@ -206,7 +206,7 @@ public class QuickSettingsController {
             } else if (tile.equals(TILE_HYBRID)) {
                 qs = new HybridTile(mContext, this, mHandler);
             } else if (tile.equals(TILE_LTE)) {
-                qs = new LteTile(mContext, inflater, mContainerView, this);
+                qs = new LteTile(mContext, this);
             }
             if (qs != null) {
                 qs.setupQuickSettingsTile(inflater, mContainerView);
