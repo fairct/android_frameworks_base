@@ -28,6 +28,7 @@ import static com.android.internal.util.cm.QSConstants.TILE_LOCKSCREEN;
 import static com.android.internal.util.cm.QSConstants.TILE_MOBILEDATA;
 import static com.android.internal.util.cm.QSConstants.TILE_NETWORKMODE;
 import static com.android.internal.util.cm.QSConstants.TILE_NFC;
+import static com.android.internal.util.cm.QSConstants.TILE_LTE;
 import static com.android.internal.util.cm.QSConstants.TILE_RINGER;
 import static com.android.internal.util.cm.QSConstants.TILE_SCREENTIMEOUT;
 import static com.android.internal.util.cm.QSConstants.TILE_SETTINGS;
@@ -128,7 +129,6 @@ public class QuickSettingsController {
         // Filter items not compatible with device
         boolean bluetoothSupported = deviceSupportsBluetooth();
         boolean mobileDataSupported = deviceSupportsMobileData(mContext);
-        boolean telephonySupported = deviceSupportsTelephony(mContext);
         boolean lteSupported = deviceSupportsLte(mContext);
 
         if (!bluetoothSupported) {
@@ -205,8 +205,6 @@ public class QuickSettingsController {
                     qs = new DesktopModeTile(mContext, this, mHandler);
             } else if (tile.equals(TILE_HYBRID)) {
                 qs = new HybridTile(mContext, this, mHandler);
-            } else if (tile.equals(TILE_WIMAX)) {
-                // Not available yet
             } else if (tile.equals(TILE_LTE)) {
                 qs = new LteTile(mContext, inflater, mContainerView, this);
             }
